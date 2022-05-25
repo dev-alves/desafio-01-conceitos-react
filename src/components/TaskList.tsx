@@ -27,10 +27,10 @@ export function TaskList() {
   }
 
   function handleToggleTaskCompletion(id: number) {
-    const task = tasks.find(f => f.id === id)
-    if (task !== undefined) {
-      task.isComplete = true;
-      setTasks([...tasks.filter(f => f.id !== id), task]);
+    const index = tasks.findIndex(f => f.id === id)
+    if (index >= 0) {
+      tasks[index].isComplete =  !tasks[index].isComplete;
+      setTasks([...tasks]);
     }
   }
 
